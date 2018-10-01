@@ -4,13 +4,7 @@
 
 using namespace std;
 
-// function to convert character to int
-int ctoi(int c){
-	return c - '0';
-}
-
-
-/* 	==================+++ ALGORITHM DESCRIPTION ========================
+/* 	======================== ALGORITHM DESCRIPTION ========================
 	The problem is being broken into finding an odd-length cycle in a 
 	graph where each vertex in the graph is a chemical while each edge 
 	represents that the two chemicals can react. The odd-length	cycles are
@@ -23,6 +17,7 @@ int ctoi(int c){
 	Running BFS twice is still O(|V| + |E|)
 
 	Overall Running Time Complexity: O(|V|+|E|).
+	Overall Space Complexity (Because of adjacency list): O(|V| + |E|)
 */
 
 // This function simply runs BFS, which is O(|V| + |E|) on any given node 
@@ -37,7 +32,7 @@ string fill_colors(const Graph* graph, queue<int> &q, string* colors){
 	q.pop();
 
 	// color every child of v a different color from v and push into queue
-	for(auto itr = graph->edges[v].begin(); itr != graph->edges[v].end(); itr++){
+	for(auto itr = graph->in_edges[v].begin(); itr != graph->in_edges[v].end(); itr++){
 		int u = *itr;
 		if (colors[u] == "none"){
 			if (colors[v] == "red")
@@ -64,7 +59,7 @@ string find_cycle(const Graph* graph, queue<int> &q, string* colors){
 	int v = q.front();
 	q.pop();
 
-	for(auto itr = graph->edges[v].begin(); itr != graph->edges[v].end(); itr++){
+	for(auto itr = graph->in_edges[v].begin(); itr != graph->in_edges[v].end(); itr++){
 		int u = *itr;
 		if(colors[u] == "none"){
 			if (colors[v] == "red")
@@ -157,7 +152,7 @@ void can_pack(Graph* graph){
 }
 
 int main(){
-	Graph* graph = parse_file("Q1_input5.txt");
+	Graph* graph = parse_file("Q1_input1.txt");
 	can_pack(graph);
 	return 0;
 }
