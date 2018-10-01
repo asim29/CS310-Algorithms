@@ -1,10 +1,6 @@
-#include <iostream>
-#include <unordered_set>
 #include <vector>
-#include <fstream>
-#include <sstream>
-#include <iterator>
 #include <queue>
+#include "../graph.cpp"
 
 using namespace std;
 
@@ -28,35 +24,6 @@ int ctoi(int c){
 
 	Overall Running Time Complexity: O(|V|+|E|).
 */
-
-// Using a graph structure with an array of unordered_sets
-// An edge between two chemicals represents they react with each other
-// since unordered_sets are stored as hash tables in C++
-// Adding or searching for an element both take O(1) time in a set
-struct Graph{
-	int V;
-	unordered_set<int>* edges;
-
-	Graph(int N) : V(N)
-	{
-		edges = new unordered_set<int>[N];
-	}
-};
-// Since it is an undirected graph
-// just need to add chem1 into the edges list of chem2 and vice-versa
-void insert_edge(Graph* graph, int chem1, int chem2){
-	graph->edges[chem1].insert(chem2);
-	graph->edges[chem2].insert(chem1);
-}
-
-// This function takes on average O(1) time since sets are stored as hash tables
-// But in worst case it will take O(|V| + |E|) time, when:
-	// there is an edge from each vertex to every other vertex
-bool check_reactivity(const Graph* graph, int chem1, int chem2){
-	auto itr = graph->edges[chem1].find(chem2);
-
-	itr != graph->edges[chem1].end() ? true : false;
-}
 
 // this function takes O(|V| + |E|) time since the time required
 	// to add an element in a set is O(1)
@@ -159,10 +126,10 @@ string find_cycle(const Graph* graph, queue<int> &q, string* colors){
 		// The current parent is either reactive with:
 		int u_start = ctoi(result[0]);
 		int u_end = ctoi(result[result.length()-1]);
-		if (check_reactivity(graph, v, u_start))
+		if (check_edge(graph, v, u_start))
 		// the first element in the result or
 			return to_string(v) + result;
-		else if (check_reactivity(graph, v, u_end))
+		else if (check_edge(graph, v, u_end))
 		// the last element in the result or
 			return result + to_string(v);
 		else
