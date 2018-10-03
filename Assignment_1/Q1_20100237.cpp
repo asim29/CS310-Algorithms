@@ -1,6 +1,6 @@
 #include <vector>
 #include <queue>
-#include "../graph.cpp"
+#include "graph.cpp"
 
 using namespace std;
 
