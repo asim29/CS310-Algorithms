@@ -168,13 +168,13 @@ int main (){
 	int home, frnd, scenic;
 	cout << "Input home: ";
 	// cin >> home;
-	// home = 0;
+	home = 0;
 	cout << endl << "Input frnd: ";
 	// cin >> frnd;
-	// frnd = 2;
+	frnd = 2;
 	cout << endl << "Input scenic: ";
 	// cin >> scenic;
-	// scenic = 3;
+	scenic = 3;
 	cout << endl;
 
 	find_best_path(graph, home, frnd, scenic);
