@@ -240,7 +240,8 @@ bool check_negation(horn_formula* formula){
 int main(){
 	string filename;
 	cout << "Input filename: ";
-	cin >> filename;
+	getline(cin, filename);
+	cout << filename << endl;
 	// filename = "q6  test case 3.txt";
 	cout << endl;
 	horn_formula* formula = parse(filename);
