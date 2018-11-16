@@ -3,3 +3,9 @@ a.out
 
 #zipped files for submission:
 *.zip
+
+#pdf files of book
+*.pdf
+
+#jpg files of past quizzes/notes
+*.jpg

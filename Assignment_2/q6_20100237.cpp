@@ -7,7 +7,22 @@
 #include <unordered_set>
 
 using namespace std;
+/****************************** ALGORITHM DESCRIPTION ******************************
+	The algorithm first constructs the "Clause" struct, which is the abstraction of
+	an implication. The left side contains the literals that are all being and with
+	with each other. The right side is the right side literal of the implication.
+	The algorithm first makes all the literals false, and the greedy step is to 
+	only convert a literal to true when absolutely necessary - i.e. when an implic-
+	ation is not being met because of the literal being false. This only happens
+	in the case of a singleton. So first all literals that are in a singleton are 
+	put into a working set. This literal is made true, and since it is true it is
+	not longer relevant in any of the and statements in any implications in which
+	it exists of the left side. Thus it is removed from all clauses in which it 
+	comes on the left. 
 
+	The key to the algorithm being linear time is the O(1) deletion, only possible
+	via a linked list. 
+***********************************************************************************/
 struct clause{
 	int right;
 	list<int>* left;
@@ -183,7 +198,6 @@ void horn_satisfaction(horn_formula* formula){
 			working_set.insert(single);
 		}
 	}
-
 	// Every number is popped from the working set 
 	// This number needs to be true, so its value is set to true
 	// This while loop runs for a max k times where k is number of literals
@@ -239,10 +253,10 @@ bool check_negation(horn_formula* formula){
 
 int main(){
 	string filename;
-	cout << "Input filename: ";
-	getline(cin, filename);
-	cout << filename << endl;
-	// filename = "q6  test case 3.txt";
+	// cout << "Input filename: ";
+	// getline(cin, filename);
+	// cout << filename << endl;
+	filename = "q6  test case 3.txt";
 	cout << endl;
 	horn_formula* formula = parse(filename);
 	horn_satisfaction(formula);

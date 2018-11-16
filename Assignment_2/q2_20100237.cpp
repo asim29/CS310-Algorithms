@@ -104,10 +104,10 @@ void find_min_time(car_and_locs* all, int cur_station,int cur_fuel,double &total
 int main()
 {	
 	string filename;
-	cout << "Input filename: ";
-	getline(cin, filename);
+	// cout << "Input filename: ";
+	// getline(cin, filename);
 	// cout << filename << endl;
-	// filename = "q2 test case 1.txt";
+	filename = "q2 test case 1.txt";
 	// filename = "q2 test case 3.txt";
 	car_and_locs* everything = parse_text(filename);
 	// cout << "Here" << endl;
