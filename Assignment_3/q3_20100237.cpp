@@ -132,9 +132,9 @@ void print_matrix(char** matrix, int N, int start_r, int start_c){
 int main(int argc, char const *argv[])
 {
 	char** matrix;
-	string filename = "q3_test_case.txt";
-	cout << "Enter filename: " << endl;
-	cin >> file;
+	string filename = "test_cases/q3_test_case.txt";
+	// cout << "Enter filename: " << endl;
+	// cin >> file;
 	int* point = make_matrix(matrix, filename);
 	int N = point[0];
 	int r = point[1];

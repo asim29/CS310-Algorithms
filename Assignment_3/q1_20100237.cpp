@@ -192,9 +192,9 @@ int* stable_matching(preferences* all_lists){
 int main(int argc, char const *argv[])
 {
 	preferences* pref;
-	string file = "q1_test_case1.txt";
-	cout << "Enter filename: " << endl;
-	cin >> file;
+	string file = "test_cases/q1_test_case.txt";
+	// cout << "Enter filename: " << endl;
+	// cin >> file;
 	pref = parse(file);
 	int* ans = stable_matching(pref);
 

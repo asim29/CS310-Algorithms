@@ -210,9 +210,9 @@ int* stable_matching(preferences* all_lists){
 int main(int argc, char const *argv[])
 {
 	preferences* matrix;
-	string filename = "q2_test_case1.txt";
-	cout << "Enter filename: " << endl;
-	cin >> filename;
+	string filename = "test_cases/q2_test_case.txt";
+	// cout << "Enter filename: " << endl;
+	// cin >> filename;
 	matrix = parse(filename);	
 	matrix = make_lists(matrix);
 	int* ans = stable_matching(matrix);

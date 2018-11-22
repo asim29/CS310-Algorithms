@@ -75,7 +75,7 @@ int make_tree(int* &tree){
 			tree[i] = num;
 		}
 	} else {
-		string filename = "q4_test_1.txt";
+		string filename = "test_cases/q4_test_case2.txt";
 		string line;
 		ifstream f(filename);
 		getline(f, line);
