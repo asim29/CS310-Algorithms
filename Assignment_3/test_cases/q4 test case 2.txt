@@ -1,0 +1,16 @@
+n 15
+c1;29: c2, c3
+c2;6: c4, c5
+c3;11: c6, c7
+c4;15: c8, c9
+c5;5: c10, c11
+c6;10: c12, c13
+c7;20: c14, c15
+c8;1: leaf
+c9;3: leaf
+c10;4: leaf
+c11;2: leaf
+c12;15: leaf
+c13;45: leaf
+c14;10: leaf
+c15;50: leaf

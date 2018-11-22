@@ -1,0 +1,5 @@
+xi = c10
+xj = c12
+Value of nodes in Ancestry (c10) = {16, 7, 20, 17}
+Value of nodes in Ancestry (c12) = {18, 35, 4, 17}
+Value of Max Ancestry (c10, c12) = 117
